@@ -50,7 +50,7 @@
             >;
         };
 
-        right_layer {
+        one_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│ /        │  1       │  2       │  3       │  +       │   │ MUTE     │ PAGE DN  │ UP       │ END      │          │
@@ -67,17 +67,17 @@
             >;
         };
 
-        left_layer {
+        two_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│          │  [       │  {       │  }       │          │   │  ^       │  (       │  )       │  ]       │  ~       │
-            &trans     &kp LBKT   &kp LBRC   &kp RBRC   &trans         &kp CARET  &kp LPAR   &kp RPAR   &kp RBKT   &kp TILDE
+        //│    ~     │  #       │  [       │  ]       │   ^      │   │  `       │   |      │  &       │          │          │
+            &kp TILDE  &kp POUND   &kp LBKT   &kp RBKT   &kp CARET     &kp GRAVE  &kp PIPE   &kp AMPS   &trans     &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  !       │  @       │  #       │  $       │  %       │   │  *       │  -       │  =       │  \       │  `       │
-            &kp EXCL   &kp AT     &kp HASH   &kp DLLR   &kp PRCNT      &kp ASTRK  &kp MINUS  &kp EQUAL  &kp BSLH   &kp GRAVE
+        //│  (       │  )       │  {       │  }       │  \       │   │  <       │  -       │  >       │  *       │  _       │
+            &kp LPAR   &kp RPAR   &kp LBRC   &kp RBRC   &kp BSLH       &kp LT    &kp MINUS   &kp GT     &kp STAR   &kp UNDER
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│ CAPS     │          │          │          │          │   │  &       │  _       │  +       │  │       │          │
-           &caps_word  &trans     &trans     &trans     &trans         &kp AMPS   &kp UNDER  &kp PLUS   &kp PIPE   &trans
+        //│          │          │  %       │  @       │  CAPS    │   │  &       │  =       │  !       │  ?       │ PRNT SCRN|
+            &trans     &trans     &kp PRCNT   &kp AT   &caps_word      &kp AMPS   &kp EQUAL  &kp EXCL   &kp QMARK  &kp PSCRN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -87,14 +87,14 @@
         tri_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ RESET    │          │          │          │PROFILE 0 │   │          │          │          │          │  RESET   │
-           &sys_reset  &trans     &trans     &trans    &bt BT_SEL 0    &trans     &trans     &trans     &trans    &sys_reset
+        //│          │ PROFILE 0│ PROFILE 1│ PROFILE 2│ CLEAR BT │   │          │ FUNC 1   │ FUNC 2   │ FUNC 3   │ FUNC 4   │
+            &trans  &bt BT_SEL 0 &bt BT_SEL 1 bt BT_SEL 2 &bt BT_CLR   &trans     &kp F1     &kp F2     &kp F3     &kp F4
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│BOOTLOADER│          │          │          │PROFILE 1 │   │          │          │          │          │BOOTLOADER│
-          &bootloader  &trans     &trans     &trans    &bt BT_SEL 1    &trans     &trans     &trans     &trans    &bootloader
+        //│  CTRL    │  ALT     │  LGUI    │          │ RESET    │   │          │ FUNC 5   │ FUNC 6   │ FUNC 7   │ FUNC 8   │
+           &kp LCTRL   &kp LALT   &kp LGUI   &trans    &sys_reset      &trans     &kp F5     &kp F6     &kp F7     &kp F8
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │          │ CLEAR BT │PROFILE 2 │   │          │          │          │          │          │
-            &trans     &trans     &trans    &bt BT_CLR &bt BT_SEL 2    &trans     &trans     &trans     &trans     &trans
+        //│ SHIFT    │          │          │          │BOOTLOADER│   │          │ FUNC 9   │ FUNC 10  │ FUNC 11  │ FUNC 12  │
+            &kp LSHFT  &trans     &trans     &trans    &bootloader     &trans     &kp F9     &kp F10    &kp F11    &kp F12
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
