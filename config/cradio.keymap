@@ -9,6 +9,8 @@
 #define HRML(k1,k2,k3,k4) &ht LSHFT k1  &ht LALT k2  &ht LCTRL k3  &ht LGUI k4
 #define HRMR(k1,k2,k3,k4) &ht RGUI k1  &ht RCTRL k2  &ht RALT k3  &ht RSHFT k4
 
+// Thumb row layer macro
+#define TRLR(k1,k2,k3,k4) &lt 2 k1	&lt 1 k2	&lt 1 k3	&lt 2 k4
 
 
 // COMBOS
@@ -113,7 +115,7 @@
         //│  Z       │  X       │  C       │  D       │  V       │   │  K       │  H       │ , <      │ . >      │ ' "      │
           &ht LSHFT Z  &kp X      &kp C      &kp D      &kp V          &kp K      &kp H      &kp COMMA  &kp DOT    &kp SQT
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                           &kp SPACE &lt 2 SEMICOLON  &lt 1 BSPC  &kp ENTER
+										TRLR( SPACE,   SEMICOLON,      BSPC,       ENTER)	
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
