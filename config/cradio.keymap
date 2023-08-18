@@ -17,26 +17,44 @@
         compatible = "zmk,combos";
         combo_tab {
             timeout-ms = <50>;
-            key-positions = <6 7>;
+            key-positions = <11 12>;
             bindings = <&kp TAB>;
         };
 		
 		combo_ctrl_shft_esc {
             timeout-ms = <50>;
-            key-positions = <0 5 10>;
+            key-positions = <0 10 20>;
             bindings = <&kp LCTRL &kp LSHFT &kp ESC>;
         };
 		
 		combo_semicolon {
             timeout-ms = <50>;
-            key-positions = <28 29>;
+            key-positions = <26 27>;
             bindings = <&kp COLON>;
         };
 		
 		combo_colon {
             timeout-ms = <50>;
-            key-positions = <28 30>;
+            key-positions = <26 28>;
             bindings = <&kp SEMICOLON>;
+        };
+		
+		combo_cut {
+            timeout-ms = <50>;
+            key-positions = <20 21>;
+            bindings = <&kp LCTRL &kp X>;
+        };
+		
+		combo_copy {
+            timeout-ms = <50>;
+            key-positions = <20 22>;
+            bindings = <&kp LCTRL &kp C>;
+        };
+		
+		combo_paste {
+            timeout-ms = <50>;
+            key-positions = <20 23>;
+            bindings = <&kp LCTRL &kp V>;
         };
     };
 };
