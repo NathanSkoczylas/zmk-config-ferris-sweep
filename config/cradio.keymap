@@ -16,27 +16,27 @@
         compatible = "zmk,combos";
         combo_tab {
             timeout-ms = <50>;
-            key-positions = <6 7>;
+            key-positions = <0 1>;
             bindings = <&kp TAB>;
         };
 		
-		combo_ctrl_shft_esc {
-            timeout-ms = <50>;
-            key-positions = <0 5 10>;
-            bindings = <&kp LCTRL &kp LSHFT &kp ESC>;
-        };
-		
-		combo_semicolon {
-            timeout-ms = <50>;
-            key-positions = <28 29>;
-            bindings = <&kp COLON>;
-        };
-		
-		combo_colon {
-            timeout-ms = <50>;
-            key-positions = <28 30>;
-            bindings = <&kp SEMICOLON>;
-        };
+		//combo_ctrl_shft_esc {
+        //    timeout-ms = <50>;
+        //    key-positions = <0 5 10>;
+        //    bindings = <&kp LCTRL &kp LSHFT &kp ESC>;
+        //};
+		//
+		//combo_semicolon {
+        //    timeout-ms = <50>;
+        //    key-positions = <28 29>;
+        //    bindings = <&kp COLON>;
+        //};
+		//
+		//combo_colon {
+        //    timeout-ms = <50>;
+        //    key-positions = <28 30>;
+        //    bindings = <&kp SEMICOLON>;
+        //};
     };
 };
 
@@ -48,7 +48,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <220>;
+            tapping-term-ms = <300>;
             quick-tap-ms = <150>;
             global-quick-tap;
             bindings = <&kp>, <&kp>;
@@ -65,17 +65,34 @@
 
     keymap {
         compatible = "zmk,keymap";
-        default_layer {
+//        default_layer {
+//            bindings = <
+//        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
+//        //│  B       │  L       │  D       │  W       │  Z       │   │  -       │  F       │  O       │  U       │  J       │
+//            &kp B      &kp L      &kp D      &kp W      &kp Z          &kp MINUS  &kp F      &kp O      &kp U      &kp J
+//        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+//        //│  N       │  R       │  T       │  S       │  G       │   │  Y       │  H       │  A       │  E       │  I       │
+//            HRML(N,        R,         T,         S)     &kp G          &kp Y      HRMR(H,        A,         E,        I)
+//        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+//        //│  Q       │  X       │  M       │  C       │  V       │   │  K       │  P       │ , <      │ . >      │ ' "      │
+//            &kp Q      &kp X      &kp M      &kp C      &kp V          &kp K      &kp P      &kp COMMA  &kp DOT    &kp SQT
+//        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+//                                           &kp SPACE &lt 2 SEMICOLON  &lt 1 BSPC  &kp ENTER
+//        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
+//            >;
+//        };
+//		
+		colmak_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  B       │  L       │  D       │  W       │  Z       │   │  -       │  F       │  O       │  U       │  J       │
-            &kp B      &kp L      &kp D      &kp W      &kp Z          &kp MINUS  &kp F      &kp O      &kp U      &kp J
+        //│  Q       │  W       │  F       │  P       │  B       │   │  J       │  L       │  U       │  Y       │          │
+            &kp Q      &kp W      &kp F      &kp P      &kp B          &kp J     &kp L      &kp U      &kp Y      &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  N       │  R       │  T       │  S       │  G       │   │  Y       │  H       │  A       │  E       │  I       │
-            HRML(N,        R,         T,         S)     &kp G          &kp Y      HRMR(H,        A,         E,        I)
+        //│  A       │  R       │  T       │  S       │  G       │   │  M       │  N       │  E       │  I       │  O       │
+            HRML(A,        R,         S,         T)     &kp G          &kp M      HRMR(N,        E,         I,        O)
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  Q       │  X       │  M       │  C       │  V       │   │  K       │  P       │ , <      │ . >      │ ' "      │
-            &kp Q      &kp X      &kp M      &kp C      &kp V          &kp K      &kp P      &kp COMMA  &kp DOT    &kp SQT
+        //│  Z       │  X       │  C       │  D       │  V       │   │  K       │  H       │ , <      │ . >      │ ' "      │
+            &kp Z      &kp X      &kp C      &kp D      &kp V          &kp K      &kp H      &kp COMMA  &kp DOT    &kp SQT
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                            &kp SPACE &lt 2 SEMICOLON  &lt 1 BSPC  &kp ENTER
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -85,8 +102,8 @@
         one_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ /        │  1       │  2       │  3       │  +       │   │ MUTE     │ PAGE DN  │ UP       │ END      │          │
-            &kp SLASH  &kp N1     &kp N2     &kp N3     &kp PLUS      &kp K_MUTE  &trans     &kp UARW   &kp END    &trans
+        //│  /       │  1       │  2       │  3       │  +       │   │ MUTE     │ HOME     │ UP       │ END      │          │
+            &kp SLASH  &kp N1     &kp N2     &kp N3     &kp PLUS      &kp K_MUTE  &kp HOME   &kp UARW   &kp END    &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ *        │  4       │  5       │  6       │  -       │   │ VOL UP   │ LEFT     │ DOWN     │ RIGHT    │ DELETE   │
             &kp ASTRK  &kp N4     &kp N5     &kp N6     &kp MINUS    &kp K_VOL_UP &kp LARW   &kp DARW    &kp RARW  &kp DEL
