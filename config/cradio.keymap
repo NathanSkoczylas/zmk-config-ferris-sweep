@@ -88,7 +88,7 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │ PROFILE 0│ PROFILE 1│ PROFILE 2│ CLEAR BT │   │          │ FUNC 1   │ FUNC 2   │ FUNC 3   │ FUNC 4   │
-            &trans  &bt BT_SEL 0 &bt BT_SEL 1 bt BT_SEL 2 &bt BT_CLR   &trans     &kp F1     &kp F2     &kp F3     &kp F4
+            &trans &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_CLR  &trans     &kp F1     &kp F2     &kp F3     &kp F4
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  CTRL    │  ALT     │  LGUI    │          │ RESET    │   │          │ FUNC 5   │ FUNC 6   │ FUNC 7   │ FUNC 8   │
            &kp LCTRL   &kp LALT   &kp LGUI   &trans    &sys_reset      &trans     &kp F5     &kp F6     &kp F7     &kp F8
