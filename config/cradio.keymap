@@ -54,7 +54,7 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│ /        │  1       │  2       │  3       │  +       │   │ MUTE     │ PAGE DN  │ UP       │ END      │          │
-            &kp SLASH  &kp N1     &kp N2     &kp N3     &kp PLUS      &kp K_MUTE  &trans     &kp UARW   &kp END    & trans
+            &kp SLASH  &kp N1     &kp N2     &kp N3     &kp PLUS      &kp K_MUTE  &trans     &kp UARW   &kp END    &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│ *        │  4       │  5       │  6       │  -       │   │ VOL UP   │ LEFT     │ DOWN     │ RIGHT    │ DELETE   │
             &kp ASTRK  &kp N4     &kp N5     &kp N6     &kp MINUS    &kp K_VOL_UP &kp LARW   &kp DARW    &kp RARW  &kp DEL
