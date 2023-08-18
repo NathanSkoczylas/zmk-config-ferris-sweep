@@ -9,6 +9,38 @@
 #define HRML(k1,k2,k3,k4) &ht LSHFT k1  &ht LALT k2  &ht LCTRL k3  &ht LGUI k4
 #define HRMR(k1,k2,k3,k4) &ht RGUI k1  &ht RCTRL k2  &ht RALT k3  &ht RSHFT k4
 
+
+// COMBOS
+/ {
+    combos {
+        compatible = "zmk,combos";
+        combo_tab {
+            timeout-ms = <50>;
+            key-positions = <6 7>;
+            bindings = <&kp TAB>;
+        };
+		
+		combo_ctrl_shft_esc {
+            timeout-ms = <50>;
+            key-positions = <0 5 10>;
+            bindings = <&kp LCTRL &kp LSHFT &kp ESC>;
+        };
+		
+		combo_semicolon {
+            timeout-ms = <50>;
+            key-positions = <28 29>;
+            bindings = <&kp COLON>;
+        };
+		
+		combo_colon {
+            timeout-ms = <50>;
+            key-positions = <28 30>;
+            bindings = <&kp SEMICOLON>;
+        };
+    };
+};
+
+
 / {
     behaviors {
         ht: hold_tap {
@@ -45,7 +77,7 @@
         //│  Q       │  X       │  M       │  C       │  V       │   │  K       │  P       │ , <      │ . >      │ ' "      │
             &kp Q      &kp X      &kp M      &kp C      &kp V          &kp K      &kp P      &kp COMMA  &kp DOT    &kp SQT
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &kp SPACE	&lt 2 TAB     &lt 1 BSPC  &kp ENTER
+                                           &kp SPACE &lt 2 SEMICOLON  &lt 1 BSPC  &kp ENTER
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
