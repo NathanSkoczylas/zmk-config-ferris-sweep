@@ -17,10 +17,16 @@
 / {
     combos {
         compatible = "zmk,combos";
-        combo_tab {
+        combo_colon {
             timeout-ms = <50>;
             key-positions = <11 12>;
-            bindings = <&kp TAB>;
+            bindings = <&kp COLON>;
+        };
+		
+		combo_semicolon {
+            timeout-ms = <50>;
+            key-positions = <11 13>;
+            bindings = <&kp SEMICOLON>;
         };
 		
 		combo_ctrl_shft_esc {
@@ -29,13 +35,13 @@
             bindings = <&kp LCTRL &kp LSHFT &kp ESC>;
         };
 		
-		combo_semicolon {
+		combo_printscreen {
             timeout-ms = <50>;
             key-positions = <26 27>;
-            bindings = <&kp COLON>;
+            bindings = <&kp PSCRN>;
         };
 		
-		combo_colon {
+		combo_Y {
             timeout-ms = <50>;
             key-positions = <26 28>;
             bindings = <&kp SEMICOLON>;
@@ -98,7 +104,7 @@
 //        //│  Q       │  X       │  M       │  C       │  V       │   │  K       │  P       │ , <      │ . >      │ ' "      │
 //            &kp Q      &kp X      &kp M      &kp C      &kp V          &kp K      &kp P      &kp COMMA  &kp DOT    &kp SQT
 //        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-//                                           &kp SPACE &lt 2 SEMICOLON  &lt 1 BSPC  &kp ENTER
+//                                            &kp SPACE  &lt 2 TAB      &lt 1 BSPC  &kp ENTER
 //        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
 //            >;
 //        };
@@ -110,12 +116,12 @@
           &ht LALT Q   &kp W      &kp F      &kp P      &kp B          &kp J     &kp L      &kp U      &kp Y     &ht LALT BSPC
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  A       │  R       │  S       │  T       │  G       │   │  M       │  N       │  E       │  I       │  O       │
-          &ht LCTRL A &ht LGUI R  &kp S      &kp T      &kp G          &kp M      &kp N      &kp E    &ht RGUI I &ht RSHFT O
+          &ht LCTRL A &ht LGUI R  &kp S      &kp T      &kp G          &kp M      &kp N      &kp E    &ht RGUI I &ht RCTRL O
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  Z       │  X       │  C       │  D       │  V       │   │  K       │  H       │ , <      │ . >      │ ' "      │
-          &ht LSHFT Z  &kp X      &kp C      &kp D      &kp V          &kp K      &kp H      &kp COMMA  &kp DOT    &kp SQT
+          &ht LSHFT Z  &kp X      &kp C      &kp D      &kp V          &kp K      &kp H      &kp COMMA  &kp DOT  &ht RSHFT SQT
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-										TRLR( SPACE,   SEMICOLON,      BSPC,       ENTER)	
+										TRLR( SPACE,     TAB,           BSPC,      ENTER)	
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -126,11 +132,11 @@
         //│  /       │  1       │  2       │  3       │  +       │   │ MUTE     │ HOME     │ UP       │ END      │          │
             &kp SLASH  &kp N1     &kp N2     &kp N3     &kp PLUS      &kp C_MUTE  &kp HOME   &kp UARW   &kp END    &kp BSPC
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  *       │  4       │  5       │  6       │  -       │   │ VOL UP   │ LEFT     │ DOWN     │ RIGHT    │ DELETE   │
-            &kp ASTRK  &kp N4     &kp N5     &kp N6     &kp MINUS    &kp C_VOL_UP &kp LARW   &kp DARW    &kp RARW  &kp DEL
+        //│  *       │  4       │  5       │  6       │  0       │   │ VOL UP   │ LEFT     │ DOWN     │ RIGHT    │ DELETE   │
+            &kp ASTRK  &kp N4     &kp N5     &kp N6     &kp N0       &kp C_VOL_UP &kp LARW   &kp DARW    &kp RARW  &kp DEL
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  =       │  7       │  8       │  9       │  0       │   │ VOL DOWN │ PAGE DN  │          │ PAGE UP  │          │
-           &kp EQUAL   &kp N7     &kp N8     &kp N9     &kp N0       &kp C_VOL_DN &kp PG_DN  &trans     &kp PG_UP  &trans
+        //│  =       │  7       │  8       │  9       │  -       │   │ VOL DOWN │ PAGE DN  │          │ PAGE UP  │          │
+           &kp EQUAL   &kp N7     &kp N8     &kp N9     &kp MINUS    &kp C_VOL_DN &kp PG_DN  &trans     &kp PG_UP  &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &kp ESC        &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -140,14 +146,14 @@
         two_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│    ~     │  #       │  [       │  ]       │   ^      │   │  `       │   |      │  &       │          │          │
-            &kp TILDE  &kp POUND   &kp LBKT   &kp RBKT   &kp CARET     &kp GRAVE  &kp PIPE   &kp AMPS   &trans     &trans
+        //│    ~     │  $       │  [       │  ]       │   ^      │   │  `       │   |      │  &       │          │          │
+            &kp TILDE &kp DOLLAR  &kp LBKT   &kp RBKT   &kp CARET     &kp GRAVE  &kp PIPE   &kp AMPS   &trans     &trans
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  (       │  )       │  {       │  }       │  \       │   │  <       │  -       │  >       │  *       │  _       │
             &kp LPAR   &kp RPAR   &kp LBRC   &kp RBRC   &kp BSLH       &kp LT    &kp MINUS   &kp GT     &kp STAR   &kp UNDER
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │  %       │  @       │  CAPS    │   │  &       │  =       │  !       │  ?       │ PRNT SCRN|
-            &trans     &trans     &kp PRCNT   &kp AT   &caps_word      &kp AMPS   &kp EQUAL  &kp EXCL   &kp QMARK  &kp PSCRN
+        //│          │  #       │  %       │  @       │  CAPS    │   │  &       │  =       │  !       │  ?       │ PRNT SCRN|
+            &trans     &kp POUND  &kp PRCNT  &kp AT    &caps_word      &kp AMPS   &kp EQUAL  &kp EXCL   &kp QMARK  &kp PSCRN
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &trans     &trans         &trans     &trans
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
