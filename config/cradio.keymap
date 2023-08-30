@@ -96,6 +96,28 @@
                 ;
         };
 		
+		CT_LA: ctrl_left_arrow_macro {
+            label = "ZM_ctrl_left_arrow_macro";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_tap &kp LARW>
+                , <&macro_release &kp LCTRL>
+                ;
+        };
+		
+		CT_RA: ctrl_right_arrow_macro {
+            label = "ZM_ctrl_right_arrow_macro";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_tap &kp RARW>
+                , <&macro_release &kp LCTRL>
+                ;
+        };
+		
     };
 };
 
@@ -166,7 +188,7 @@
 		
 		td_copy: tap_dance_copy {
             compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_0";
+            label = "TAP_DANCE_COPY";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp P>, <&copy_macro>;
@@ -174,7 +196,7 @@
 		
 		td_paste: tap_dance_paste {
             compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_0";
+            label = "TAP_DANCE_PASTE";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp V>, <&paste_macro>;
@@ -182,7 +204,7 @@
 		
 		td_cut: tap_dance_cut {
             compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_0";
+            label = "TAP_DANCE_CUT";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp B>, <&cut_macro>;
@@ -190,7 +212,7 @@
 		
 		td_select_all: tap_dance_select_all {
             compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_0";
+            label = "TAP_DANCE_SELECT_ALL";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp W>, <&select_all_macro>;
@@ -259,8 +281,8 @@
         //│  *       │  4       │  5       │  6       │  0       │   │ VOL UP   │ LEFT     │ DOWN     │ RIGHT    │ DELETE   │
             &kp ASTRK  &kp N4     &kp N5     &kp N6     &kp N0       &kp C_VOL_UP &kp LARW   &kp DARW    &kp RARW  &kp DEL
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  =       │  7       │  8       │  9       │  -       │   │ VOL DOWN │ PAGE DN  │          │ PAGE UP  │          │
-           &kp EQUAL   &kp N7     &kp N8     &kp N9     &kp MINUS    &kp C_VOL_DN &kp PG_DN  &trans     &kp PG_UP  &trans
+        //│  =       │  7       │  8       │  9       │  -       │   │ VOL DOWN │ CTRL LEFT│          │CTRL RIGHT│          │
+           &kp EQUAL   &kp N7     &kp N8     &kp N9     &kp MINUS    &kp C_VOL_DN &kp CT_LA  &trans     &kp CT_RA  &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &kp TAB   &mo L_THREE    &kp BSPC    &kp DEL
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -279,7 +301,7 @@
         //│          │  #       │  {       │  }       │  CAPS    │   │ PRNT SCRN│  =       │  !       │  ?       │          |
             &trans     &kp POUND  &kp LBRC   &kp RBRC  &caps_word      &kp PSCRN  &kp EQUAL  &kp EXCL   &kp QMARK  &trans 
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &trans     &trans         &trans     &trans
+                                             &kp TAB    &trans         &kp BSPC    &kp DEL
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
