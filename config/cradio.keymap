@@ -67,6 +67,35 @@
                 ;
         };
 		
+		
+		ctrl_shift_esc_macro: ctrl_shift_esc_macro {
+            label = "ZM_ctrl_shift_esc_macro";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_press &kp LSHFT>
+                , <&macro_press &kp ESC>
+                , <&macro_release &kp LCTRL>
+                , <&macro_release &kp LSHFT>
+                , <&macro_release &kp ESC>
+                ;
+        };
+		
+		ctrl_alt_del_macro: ctrl_alt_del_macro {
+            label = "ZM_ctrl_alt_del_macro";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_press &kp LALT>
+                , <&macro_press &kp DEL>
+                , <&macro_release &kp LCTRL>
+                , <&macro_release &kp LALT>
+                , <&macro_release &kp DEL>
+                ;
+        };
+		
     };
 };
 
@@ -79,7 +108,7 @@
         compatible = "zmk,combos";
         combo_colon {
             timeout-ms = <50>;
-            key-positions = <11 12>;
+            key-positions = <12 13>;
             bindings = <&kp COLON>;
         };
 		
@@ -92,7 +121,13 @@
 		combo_ctrl_shft_esc {
             timeout-ms = <50>;
             key-positions = <0 10 20>;
-            bindings = <&kp LCTRL &kp LSHFT &kp ESC>;
+            bindings = <&ctrl_shift_esc_macro>;
+        };
+		
+		combo_ctrl_alt_del {
+            timeout-ms = <50>;
+            key-positions = <9 19 29>;
+            bindings = <&ctrl_alt_del_macro>;
         };
 		
 		combo_printscreen {
@@ -136,6 +171,30 @@
             tapping-term-ms = <200>;
             bindings = <&kp P>, <&copy_macro>;
         };
+		
+		td_paste: tap_dance_paste {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_0";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp V>, <&paste_macro>;
+        };
+		
+		td_cut: tap_dance_cut {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_0";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp B>, <&cut_macro>;
+        };
+		
+		td_select_all: tap_dance_select_all {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_0";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp W>, <&select_all_macro>;
+        };
     };
 
     //conditional_layers {
@@ -175,13 +234,13 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│  J       │  G       │  M       │  P       │  V       │   │  Z       │  / ?     │  .       │  ' "     │  ESCAPE  │
-            &kp J      &kp G      &kp M      &td_copy   &kp V          &kp Z      &kp SLASH  &kp DOT   &kp APOS    &kp ESC
+            &kp J      &kp G      &kp M      &td_copy   &td_paste      &kp Z      &kp SLASH  &kp DOT   &kp APOS    &kp ESC
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  R       │  S       │  N       │  D       │  B       │   │  ,       │  A       │  E       │  I       │  H       │
-          &ht LCTRL R &ht LGUI S  &kp N      &kp D      &kp B          &kp COMMA  &kp A      &kp E     &ht RGUI I &ht RCTRL H
+          &ht LCTRL R &ht LGUI S  &kp N      &kp D      &td_cut        &kp COMMA  &kp A      &kp E     &ht RGUI I &ht RCTRL H
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  X       │  F       │  L       │  C       │  W       │   │  Q       │  U       │  O       │  Y       │  K       │
-          &ht LSHFT X &ht LALT F  &kp L      &kp C      &kp W          &kp Q      &kp U      &kp O     &ht LALT Y &ht RSHFT K
+          &ht LSHFT X &ht LALT F  &kp L      &kp C    &td_select_all   &kp Q      &kp U      &kp O     &ht LALT Y &ht RSHFT K
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
         //								   | to lay2  | to lay1  |   |  to lay1 |  to lay2 |
 										TRLR( T,         T,            ENTER,      SPACE)
