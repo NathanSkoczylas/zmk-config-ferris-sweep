@@ -191,7 +191,7 @@
             label = "TAP_DANCE_COPY";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp P>, <&copy_macro>;
+            bindings = <&kp C>, <&copy_macro>;
         };
 		
 		td_paste: tap_dance_paste {
@@ -256,13 +256,13 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│  J       │  G       │  M       │  P       │  V       │   │  Z       │  / ?     │  .       │  ' "     │  ESCAPE  │
-            &kp J      &kp G      &kp M      &td_copy   &td_paste      &kp Z      &kp SLASH  &kp DOT   &kp APOS    &kp ESC
+            &kp J      &kp G      &kp M      &kp P      &td_paste      &kp Z      &kp SLASH  &kp DOT   &kp APOS    &kp ESC
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  R       │  S       │  N       │  D       │  B       │   │  ,       │  A       │  E       │  I       │  H       │
           &ht LCTRL R &ht LGUI S  &kp N      &kp D      &td_cut        &kp COMMA  &kp A      &kp E     &ht RGUI I &ht RCTRL H
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  X       │  F       │  L       │  C       │  W       │   │  Q       │  U       │  O       │  Y       │  K       │
-          &ht LSHFT X &ht LALT F  &kp L      &kp C    &td_select_all   &kp Q      &kp U      &kp O     &ht LALT Y &ht RSHFT K
+          &ht LSHFT X &ht LALT F  &kp L      &td_copy &td_select_all   &kp Q      &kp U      &kp O     &ht LALT Y &ht RSHFT K
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
         //								   | to lay2  | to lay1  |   |  to lay1 |  to lay2 |
 										TRLR( T,         T,            ENTER,      SPACE)
@@ -284,7 +284,7 @@
         //│  =       │  7       │  8       │  9       │  -       │   │ VOL DOWN │ CTRL LEFT│          │CTRL RIGHT│          │
            &kp EQUAL   &kp N7     &kp N8     &kp N9     &kp MINUS    &kp C_VOL_DN &kp CT_LA  &trans     &kp CT_RA  &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &kp TAB   &mo L_THREE    &kp BSPC    &kp DEL
+                                             &kp TAB   &mo L_THREE    &kp DEL     &kp BSPC
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -301,7 +301,7 @@
         //│          │  #       │  {       │  }       │  CAPS    │   │ PRNT SCRN│  =       │  !       │  ?       │          |
             &trans     &kp POUND  &kp LBRC   &kp RBRC  &caps_word      &kp PSCRN  &kp EQUAL  &kp EXCL   &kp QMARK  &trans 
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &kp TAB    &trans         &kp BSPC    &kp DEL
+                                             &kp TAB    &trans         &kp DEL    &kp BSPC
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
