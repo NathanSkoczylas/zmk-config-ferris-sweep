@@ -128,6 +128,13 @@
 / {
     combos {
         compatible = "zmk,combos";
+		
+		combo_space {
+            timeout-ms = <50>;
+            key-positions = <11 12 13>;
+            bindings = <&kp SPACE>;
+        };
+		
         combo_colon {
             timeout-ms = <50>;
             key-positions = <12 13>;
@@ -199,7 +206,7 @@
             label = "TAP_DANCE_PASTE";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp V>, <&paste_macro>;
+            bindings = <&kp W>, <&paste_macro>;
         };
 		
 		td_cut: tap_dance_cut {
@@ -215,7 +222,7 @@
             label = "TAP_DANCE_SELECT_ALL";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp W>, <&select_all_macro>;
+            bindings = <&kp V>, <&select_all_macro>;
         };
     };
 
@@ -233,39 +240,21 @@
 	// ************************
     keymap {
         compatible = "zmk,keymap";
-//********************************************************************************************************************************		
-//		colmak_layer {
-//            bindings = <
-//        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-//        //│  Q       │  W       │  F       │  P       │  B       │   │  J       │  L       │  U       │  Y       │          │
-//          &ht LALT Q   &kp W      &kp F      &kp P      &kp B          &kp J     &kp L      &kp U      &kp Y     &ht LALT BSPC
-//        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-//        //│  A       │  R       │  S       │  T       │  G       │   │  M       │  N       │  E       │  I       │  O       │
-//          &ht LCTRL A &ht LGUI R  &kp S      &kp T      &kp G          &kp M      &kp N      &kp E    &ht RGUI I &ht RCTRL O
-//        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-//        //│  Z       │  X       │  C       │  D       │  V       │   │  K       │  H       │ , <      │ . >      │ ' "      │
-//          &ht LSHFT Z  &kp X      &kp C      &kp D      &kp V          &kp K      &kp H      &kp COMMA  &kp DOT  &ht RSHFT SQT
-//        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-//										 TRLR(SPACE,     TAB,           BSPC,      ENTER)	
-//        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
-//            >;
-//        };
-//********************************************************************************************************************************	
 		
         hands_down_gold_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│  J       │  G       │  M       │  P       │  V       │   │  Z       │  / ?     │  .       │  ' "     │  ESCAPE  │
-            &kp J      &kp G      &kp M      &kp P      &td_paste      &kp Z      &kp SLASH  &kp DOT   &kp APOS    &kp ESC
+            &kp J      &kp G      &kp M      &kp P    &td_select_all   &kp Z      &kp SLASH  &kp DOT   &kp APOS    &kp ESC
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  R       │  S       │  N       │  D       │  B       │   │  ,       │  A       │  E       │  I       │  H       │
-          &ht LCTRL R &ht LGUI S  &kp N      &kp D      &td_cut        &kp COMMA  &kp A      &kp E     &ht RGUI I &ht RCTRL H
+          &ht LCTRL R &ht LGUI S &ht LSHFT N  &kp D    &td_cut         &kp COMMA  &kp A    &ht RSHFT E &ht RGUI I &ht RCTRL H
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  X       │  F       │  L       │  C       │  W       │   │  Q       │  U       │  O       │  Y       │  K       │
-          &ht LSHFT X &ht LALT F  &kp L      &td_copy &td_select_all   &kp Q      &kp U      &kp O     &ht LALT Y &ht RSHFT K
+            &kp X     &ht LALT F  &kp L      &td_copy   &td_paste      &kp Q      &kp U      &kp O     &ht LALT Y  &kp K
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
         //								   | to lay2  | to lay1  |   |  to lay1 |  to lay2 |
-										TRLR( T,         T,            ENTER,      SPACE)
+										TRLR( T,         BSPC,           ENTER,      SPACE)
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -284,7 +273,7 @@
         //│  =       │  7       │  8       │  9       │  -       │   │ VOL DOWN │ CTRL LEFT│          │CTRL RIGHT│          │
            &kp EQUAL   &kp N7     &kp N8     &kp N9     &kp MINUS    &kp C_VOL_DN &CT_LA     &trans     &CT_RA     &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &kp TAB   &mo L_THREE    &kp DEL     &kp BSPC
+                                             &kp TAB   &mo L_THREE    &kp BSPC     &kp DEL
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -301,7 +290,7 @@
         //│          │  #       │  {       │  }       │  CAPS    │   │ PRNT SCRN│  =       │  !       │  ?       │          |
             &trans     &kp POUND  &kp LBRC   &kp RBRC  &caps_word      &kp PSCRN  &kp EQUAL  &kp EXCL   &kp QMARK  &trans 
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &kp TAB    &trans         &kp DEL    &kp BSPC
+                                             &kp TAB    &trans         &kp BSPC    &kp DEL
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
