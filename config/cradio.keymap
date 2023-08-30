@@ -18,8 +18,62 @@
 // Thumb row layer macro
 #define TRLR(k1,k2,k3,k4) &lt L_TWO k1	&lt L_ONE k2	&lt L_ONE k3	&lt L_TWO k4
 
+// ************************
+// MACRO DEFINITIONS
+// ************************
+/ {
+    macros {
+        copy_macro: copy_macro {
+            label = "ZM_copy_macro";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_tap &kp C>
+                , <&macro_release &kp LCTRL>
+                ;
+        };
+		
+		paste_macro: paste_macro {
+            label = "ZM_paste_macro";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_tap &kp V>
+                , <&macro_release &kp LCTRL>
+                ;
+        };
+		
+		cut_macro: cut_macro {
+            label = "ZM_cut_macro";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_tap &kp X>
+                , <&macro_release &kp LCTRL>
+                ;
+        };
+		
+		select_all_macro: select_all_macro {
+            label = "ZM_select_all_macro";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_tap &kp A>
+                , <&macro_release &kp LCTRL>
+                ;
+        };
+		
+    };
+};
 
-// COMBOS
+
+// ************************
+// COMBO DEFINITIONS
+// ************************
 / {
     combos {
         compatible = "zmk,combos";
@@ -53,28 +107,16 @@
             bindings = <&kp SEMICOLON>;
         };
 		
-		combo_cut {
-            timeout-ms = <50>;
-            key-positions = <20 21>;
-            bindings = <&kp LCTRL &kp X>;
-        };
-		
-		combo_copy {
-            timeout-ms = <50>;
-            key-positions = <20 22>;
-            bindings = <&kp LCTRL &kp C>;
-        };
-		
-		combo_paste {
-            timeout-ms = <50>;
-            key-positions = <20 23>;
-            bindings = <&kp LCTRL &kp V>;
-        };
     };
 };
 
-
+// ************************
+// KEYBOARD SETUP
+// ************************
 / {
+	// ************************
+	// BEHAVIOR DEFINITIONS
+	// ************************
     behaviors {
         ht: hold_tap {
             label = "hold_tap";
@@ -86,6 +128,14 @@
             global-quick-tap;
             bindings = <&kp>, <&kp>;
         };
+		
+		td_copy: tap_dance_copy {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_0";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp P>, <&copy_macro>;
+        };
     };
 
     //conditional_layers {
@@ -96,6 +146,10 @@
     //    };
     //};
 
+
+	/ ************************
+	// KEY MAP DEFINITION
+	// ************************
     keymap {
         compatible = "zmk,keymap";
 //********************************************************************************************************************************		
@@ -121,7 +175,7 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│  J       │  G       │  M       │  P       │  V       │   │  Z       │  / ?     │  .       │  ' "     │  ESCAPE  │
-            &kp J      &kp G      &kp M      &kp P      &kp V          &kp Z      &kp SLASH  &kp DOT   &kp APOS    &kp ESC
+            &kp J      &kp G      &kp M      &td_copy   &kp V          &kp Z      &kp SLASH  &kp DOT   &kp APOS    &kp ESC
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  R       │  S       │  N       │  D       │  B       │   │  ,       │  A       │  E       │  I       │  H       │
           &ht LCTRL R &ht LGUI S  &kp N      &kp D      &kp B          &kp COMMA  &kp A      &kp E     &ht RGUI I &ht RCTRL H
