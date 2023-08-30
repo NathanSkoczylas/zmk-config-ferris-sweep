@@ -282,7 +282,7 @@
             &kp ASTRK  &kp N4     &kp N5     &kp N6     &kp N0       &kp C_VOL_UP &kp LARW   &kp DARW    &kp RARW  &kp DEL
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  =       │  7       │  8       │  9       │  -       │   │ VOL DOWN │ CTRL LEFT│          │CTRL RIGHT│          │
-           &kp EQUAL   &kp N7     &kp N8     &kp N9     &kp MINUS    &kp C_VOL_DN &kp CT_LA  &trans     &kp CT_RA  &trans
+           &kp EQUAL   &kp N7     &kp N8     &kp N9     &kp MINUS    &kp C_VOL_DN &CT_LA     &trans     &CT_RA     &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &kp TAB   &mo L_THREE    &kp DEL     &kp BSPC
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
