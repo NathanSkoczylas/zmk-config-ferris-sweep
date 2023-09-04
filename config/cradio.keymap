@@ -118,6 +118,28 @@
                 ;
         };
 		
+		undo_macro: undo_macro {
+            label = "ZM_undo_macro";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_tap &kp Z>
+                , <&macro_release &kp LCTRL>
+                ;
+        };
+		
+		redo_macro: redo_macro {
+            label = "ZM_redo_macro";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_tap &kp Y>
+                , <&macro_release &kp LCTRL>
+                ;
+        };
+		
     };
 };
 
@@ -187,7 +209,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <300>;
+            tapping-term-ms = <270>;
             quick-tap-ms = <200>;
             global-quick-tap;
             bindings = <&kp>, <&kp>;
@@ -224,6 +246,22 @@
             tapping-term-ms = <200>;
             bindings = <&kp V>, <&select_all_macro>;
         };
+		
+		td_undo: tap_dance_undo {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_UNDO";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp X>, <&undo_macro>;
+        };
+		
+		td_redo: tap_dance_redo {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_REDO";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp R>, <&redo_macro>;
+        };
     };
 
     //conditional_layers {
@@ -245,13 +283,13 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│  J       │  G       │  M       │  P       │  V       │   │  Z       │  / ?     │  .       │  ' "     │  ESCAPE  │
-            &kp J      &kp G      &kp M      &kp P    &td_select_all   &kp Z      &kp SLASH  &kp DOT   &kp APOS    &kp ESC
+           &ht LALT J  &kp G      &kp M      &kp P    &td_select_all   &kp Z      &kp SLASH  &kp DOT   &kp APOS  &ht LALT ESC
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  R       │  S       │  N       │  D       │  B       │   │  ,       │  A       │  E       │  I       │  H       │
           &ht LCTRL R &ht LGUI S &ht LSHFT N  &kp D    &td_cut         &kp COMMA  &kp A    &ht RSHFT E &ht RGUI I &ht RCTRL H
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  X       │  F       │  L       │  C       │  W       │   │  Q       │  U       │  O       │  Y       │  K       │
-            &kp X     &ht LALT F  &kp L      &td_copy   &td_paste      &kp Q      &kp U      &kp O     &ht LALT Y  &kp K
+            &kp X      &kp F      &kp L      &td_copy   &td_paste      &kp Q      &kp U      &kp O      &kp Y      &kp K
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
         //								   | to lay2  | to lay1  |   |  to lay1 |  to lay2 |
 										TRLR( T,         BSPC,           ENTER,      SPACE)
@@ -273,7 +311,7 @@
         //│  =       │  7       │  8       │  9       │  -       │   │ VOL DOWN │ CTRL LEFT│          │CTRL RIGHT│          │
            &kp EQUAL   &kp N7     &kp N8     &kp N9     &kp MINUS    &kp C_VOL_DN &CT_LA     &trans     &CT_RA     &trans
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &kp TAB   &mo L_THREE    &kp BSPC     &kp DEL
+                                             &kp TAB   &mo L_THREE     &kp DEL    &kp BSPC
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -290,7 +328,7 @@
         //│          │  #       │  {       │  }       │  CAPS    │   │ PRNT SCRN│  =       │  !       │  ?       │          |
             &trans     &kp POUND  &kp LBRC   &kp RBRC  &caps_word      &kp PSCRN  &kp EQUAL  &kp EXCL   &kp QMARK  &trans 
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &kp TAB    &trans         &kp BSPC    &kp DEL
+                                             &kp TAB    &trans         &kp DEL    &kp BSPC
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
