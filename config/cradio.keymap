@@ -289,7 +289,7 @@
           &ht LCTRL R &ht LGUI S &ht LSHFT N  &kp D    &td_cut         &kp COMMA  &kp A    &ht RSHFT E &ht RGUI I &ht RCTRL H
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  X       │  F       │  L       │  C       │  W       │   │  Q       │  U       │  O       │  Y       │  K       │
-           &undo_marco &ht LALT F &kp L      &td_copy   &td_paste      &kp Q      &kp U      &kp O      &kp Y      &ht LALT K
+           &td_undo    &ht LALT F &kp L      &td_copy   &td_paste      &kp Q      &kp U      &kp O      &kp Y      &ht LALT K
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
         //								   | to lay2  | to lay1  |   |  to lay1 |  to lay2 |
 										TRLR( SPACE,     TAB,            ENTER,      T)
