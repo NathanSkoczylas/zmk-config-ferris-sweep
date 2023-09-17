@@ -282,17 +282,17 @@
         hands_down_gold_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  J       │  G       │  M       │  P       │  V       │   │  Z       │  / ?     │  .       │  ' "     │  ESCAPE  │
-           &ht LALT J  &kp G      &kp M      &kp P    &td_select_all   &kp Z      &kp SLASH  &kp DOT   &kp APOS  &ht LALT ESC
+        //│  J       │  G       │  M       │  P       │  V       │   │  Z       │  / ?     │  .       │  ' "     │          │
+           &kp J       &kp G      &kp M      &kp P    &td_select_all   &kp Z      &kp SLASH  &kp DOT   &kp APOS    &kp BSPC
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  R       │  S       │  N       │  D       │  B       │   │  ,       │  A       │  E       │  I       │  H       │
           &ht LCTRL R &ht LGUI S &ht LSHFT N  &kp D    &td_cut         &kp COMMA  &kp A    &ht RSHFT E &ht RGUI I &ht RCTRL H
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  X       │  F       │  L       │  C       │  W       │   │  Q       │  U       │  O       │  Y       │  K       │
-            &kp X      &kp F      &kp L      &td_copy   &td_paste      &kp Q      &kp U      &kp O      &kp Y      &kp K
+           &undo_marco &ht LALT F &kp L      &td_copy   &td_paste      &kp Q      &kp U      &kp O      &kp Y      &ht LALT K
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
         //								   | to lay2  | to lay1  |   |  to lay1 |  to lay2 |
-										TRLR( T,         BSPC,           ENTER,      SPACE)
+										TRLR( SPACE,     TAB,            ENTER,      T)
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -301,14 +301,14 @@
         one_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  /       │  1       │  2       │  3       │  +       │   │ MUTE     │ HOME     │ UP       │ END      │          │
-            &kp SLASH  &kp N1     &kp N2     &kp N3     &kp PLUS      &kp C_MUTE  &kp HOME   &kp UARW   &kp END    &kp BSPC
+        //│  /       │  1       │  2       │  3       │  +       │   │ MUTE     │ HOME     │ UP       │ END      │ DELETE   │
+            &kp SLASH  &kp N1     &kp N2     &kp N3     &kp PLUS      &kp C_MUTE  &kp HOME   &kp UARW   &kp END    &kp DEL
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  *       │  4       │  5       │  6       │  0       │   │ VOL UP   │ LEFT     │ DOWN     │ RIGHT    │ DELETE   │
-            &kp ASTRK  &kp N4     &kp N5     &kp N6     &kp N0       &kp C_VOL_UP &kp LARW   &kp DARW    &kp RARW  &kp DEL
+        //│  *       │  4       │  5       │  6       │  0       │   │ VOL UP   │ LEFT     │ DOWN     │ RIGHT    │ SEMI     │
+            &kp ASTRK  &kp N4     &kp N5     &kp N6     &kp N0       &kp C_VOL_UP &kp LARW   &kp DARW    &kp RARW  &kp SEMI
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  =       │  7       │  8       │  9       │  -       │   │ VOL DOWN │ CTRL LEFT│          │CTRL RIGHT│          │
-           &kp EQUAL   &kp N7     &kp N8     &kp N9     &kp MINUS    &kp C_VOL_DN &CT_LA     &trans     &CT_RA     &trans
+        //│  =       │  7       │  8       │  9       │  -       │   │ VOL DOWN │ CTRL LEFT│          │CTRL RIGHT│ ESCAPE   │
+           &kp EQUAL   &kp N7     &kp N8     &kp N9     &kp MINUS    &kp C_VOL_DN &CT_LA     &trans     &CT_RA     &kp ESC
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &kp TAB   &mo L_THREE     &kp DEL    &kp BSPC
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
