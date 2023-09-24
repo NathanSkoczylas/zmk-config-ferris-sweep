@@ -282,8 +282,8 @@
         hands_down_gold_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  J       │  G       │  M       │  P       │  V       │   │  Z       │  / ?     │  .       │  ' "     │          │
-           &kp J       &kp G      &kp M      &kp P    &td_select_all   &kp Z      &kp SLASH  &kp DOT   &kp APOS    &kp BSPC
+        //│  J       │  G       │  M       │  P       │  V       │   │  Z       │  / ?     │  .       │  ' "     │ ESCAPE   │
+           &kp J       &kp G      &kp M      &kp P    &td_select_all   &kp Z      &kp SLASH  &kp DOT   &kp APOS    &kp ESC
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  R       │  S       │  N       │  D       │  B       │   │  ,       │  A       │  E       │  I       │  H       │
           &ht LCTRL R &ht LGUI S &ht LSHFT N  &kp D    &td_cut         &kp COMMA  &kp A    &ht RSHFT E &ht RGUI I &ht RCTRL H
@@ -292,7 +292,7 @@
            &td_undo    &ht LALT F &kp L      &td_copy   &td_paste      &kp Q      &kp U      &kp O      &kp Y      &ht LALT K
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
         //								   | to lay2  | to lay1  |   |  to lay1 |  to lay2 |
-										TRLR( SPACE,     TAB,            ENTER,      T)
+										TRLR( T ,        BSPC,          ENTER,     SPACE)
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -301,14 +301,14 @@
         one_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  /       │  1       │  2       │  3       │  +       │   │ MUTE     │ HOME     │ UP       │ END      │ DELETE   │
-            &kp SLASH  &kp N1     &kp N2     &kp N3     &kp PLUS      &kp C_MUTE  &kp HOME   &kp UARW   &kp END    &kp DEL
+        //│  /       │  1       │  2       │  3       │  +       │   │ MUTE     │ HOME     │ UP       │ END      │ ESCAPE   │
+            &kp SLASH  &kp N1     &kp N2     &kp N3     &kp PLUS      &kp C_MUTE  &kp HOME   &kp UARW   &kp END    &kp ESC
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  *       │  4       │  5       │  6       │  0       │   │ VOL UP   │ LEFT     │ DOWN     │ RIGHT    │ SEMI     │
             &kp ASTRK  &kp N4     &kp N5     &kp N6     &kp N0       &kp C_VOL_UP &kp LARW   &kp DARW    &kp RARW  &kp SEMI
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  =       │  7       │  8       │  9       │  -       │   │ VOL DOWN │ CTRL LEFT│          │CTRL RIGHT│ ESCAPE   │
-           &kp EQUAL   &kp N7     &kp N8     &kp N9     &kp MINUS    &kp C_VOL_DN &CT_LA     &trans     &CT_RA     &kp ESC
+        //│  =       │  7       │  8       │  9       │  -       │   │ VOL DOWN │ CTRL LEFT│          │CTRL RIGHT│ DELETE   │
+           &kp EQUAL   &kp N7     &kp N8     &kp N9     &kp MINUS    &kp C_VOL_DN &CT_LA     &trans     &CT_RA     &kp DEL
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &kp TAB   &mo L_THREE     &kp DEL    &kp BSPC
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -318,8 +318,8 @@
         two_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│    ~     │  $       │  [       │  ]       │   ^      │   │  `       │   |      │  &       │   /      │          │
-            &kp TILDE &kp DOLLAR  &kp LBKT   &kp RBKT   &kp CARET     &kp GRAVE  &kp PIPE   &kp AMPS   &kp SLASH   &trans
+        //│    ~     │  $       │  [       │  ]       │   ^      │   │  `       │   |      │  &       │   /      │ ESCAPE   │
+            &kp TILDE &kp DOLLAR  &kp LBKT   &kp RBKT   &kp CARET     &kp GRAVE  &kp PIPE   &kp AMPS   &kp SLASH   &kp ESC
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  %       │  @       │  (       │  )       │  \       │   │  <       │  >       │  -       │  *       │  _       │
             &kp PRCNT  &kp AT     &kp LPAR   &kp RPAR   &kp BSLH       &kp LT     &kp GT     &kp MINUS  &kp STAR   &kp UNDER
